@@ -25,3 +25,10 @@ export const EffectButton = styled.button`
     color: #ffffff;
   }
 `;
+
+export const SecBtn = styled.div`
+  border: none;
+  color: var(--grey-color);
+  background: transparent;
+  cursor: pointer;
+`;

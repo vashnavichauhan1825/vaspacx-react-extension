@@ -49,13 +49,35 @@ export const DetailContainer = styled.div`
   font-size: 1.5rem;
   color: var(--primary-color);
   gap: 20px;
-  height: 50%;
+  height: 100%;
   width: 100%;
   justify-content: center;
 
   div {
     display: flex;
     justify-content: space-between;
+  }
+`;
+
+export const BottomWrapper = styled.div`
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  display: flex;
+  width: auto;
+  gap: 20px;
+  justify-content: space-between;
+`;
+
+export const ColumnWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    margin: 0;
+    font-size: 20px;
   }
 `;
 
@@ -84,4 +106,13 @@ export const DateContainer = styled.div`
 export const TimeWrapper = styled.div`
   font-size: 4rem;
   color: white;
+`;
+
+export const CountDownWrapper = styled.div`
+  display: flex;
+  width: 55%;
+  align-items: center;
+  font-size: 6rem;
+  color: white;
+  justify-content: space-evenly;
 `;
