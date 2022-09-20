@@ -53,7 +53,7 @@ export const DetailContainer = styled.div`
   width: 100%;
   justify-content: center;
 
-  div {
+  form {
     display: flex;
     justify-content: space-between;
   }

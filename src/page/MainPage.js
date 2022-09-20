@@ -24,9 +24,11 @@ const MainPage = () => {
   };
 
   const startDeadline = () => {
-    const dateObj = { date: dateValue, month: monthValue, year: yearValue };
-    localStorage.setItem("date", JSON.stringify(dateObj));
-    dispatch(getDataActions.setFlag());
+    if (dateValue) {
+      const dateObj = { date: dateValue, month: monthValue, year: yearValue };
+      localStorage.setItem("date", JSON.stringify(dateObj));
+      dispatch(getDataActions.setFlag());
+    }
   };
 
   const nameHandler = (value) => {
@@ -52,24 +54,25 @@ const MainPage = () => {
         {!flag && (
           <>
             <small>set deadline to acheive goal !</small>
-            <div>
+            <form>
               <InputName
                 type="date"
                 onChange={(event) => nameHandler(event.target.value)}
                 min="2022-09-30"
+                required
               />
               <EffectButton onClick={startDeadline}>
                 <i class="fa fa-chevron-right" aria-hidden="true">
                   Go !
                 </i>
               </EffectButton>
-            </div>
+            </form>
           </>
         )}
 
         {flag && <SpecialCountdown />}
       </DetailContainer>
-      <Edit />
+      {flag && <Edit />}
     </>
   );
 };
