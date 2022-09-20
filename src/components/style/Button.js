@@ -32,3 +32,25 @@ export const SecBtn = styled.div`
   background: transparent;
   cursor: pointer;
 `;
+
+export const WeatherBtn = styled.div`
+  background-color: transparent;
+  border: none;
+  color: var(--grey-color);
+  text-align: end;
+  margin-top: 5px;
+
+  &:hover {
+    cursor: pointer;
+    color: var(--primary-color);
+  }
+`;
+
+export const TransparentBtn = styled.button`
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: white;
+  cursor: pointer;
+  width: auto;
+  padding: 0.5rem;
+`;

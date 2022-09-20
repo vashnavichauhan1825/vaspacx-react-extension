@@ -116,3 +116,38 @@ export const CountDownWrapper = styled.div`
   color: white;
   justify-content: space-evenly;
 `;
+
+export const WeatherWrapper = styled.div`
+  font-size: 2rem;
+  text-align: right;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 5%;
+  top: 5%;
+`;
+
+export const TempWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--cta-color);
+`;
+
+export const InputCitySearch = styled.div`
+  display: block;
+  font-size: 1.75rem;
+  width: 15rem;
+  height: 3rem;
+  text-align: center;
+  background-color: black;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--grey-color);
+  color: var(--grey-color);
+
+  &::placeholder {
+    color: var(--primary-color);
+  }
+`;

@@ -11,13 +11,15 @@ import SpecialCountdown from "../components/CountDown";
 import Edit from "../components/edit/Edit";
 import Greetings from "../components/Greetings";
 import Time from "../components/Time";
+import Todo from "../components/todo/Todo";
+import Weather from "../components/weather/Weather";
 import { getDataActions } from "../store/extData";
 
 const MainPage = () => {
   const dateValue = useSelector((state) => state.extData.dateStore.date);
   const monthValue = useSelector((state) => state.extData.dateStore.month);
   const yearValue = useSelector((state) => state.extData.dateStore.year);
-  const flag = useSelector((state) => state.extData.flag);
+  const flag = localStorage.getItem("flag");
   const dispatch = useDispatch();
   const getDate = () => {
     return new Date().toDateString();
@@ -44,13 +46,13 @@ const MainPage = () => {
 
   return (
     <>
-      <DetailContainer data-aos="zoom-in">
-        <span>
+      <DetailContainer>
+        <span data-aos="zoom-in">
           <Greetings />
         </span>
 
         <Time />
-        <DateContainer>{getDate()}</DateContainer>
+        <DateContainer data-aos="fade-in">{getDate()}</DateContainer>
         {!flag && (
           <>
             <small>set deadline to acheive goal !</small>
@@ -69,7 +71,8 @@ const MainPage = () => {
             </form>
           </>
         )}
-
+        <Weather />
+        <Todo />
         {flag && <SpecialCountdown />}
       </DetailContainer>
       {flag && <Edit />}

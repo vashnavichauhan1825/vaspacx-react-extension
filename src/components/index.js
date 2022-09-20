@@ -9,6 +9,14 @@ export {
   DetailContainer,
   ColumnWrap,
   BottomWrapper,
+  TempWrapper,
+  WeatherWrapper,
+  InputCitySearch,
 } from "./style/Elements";
 
-export { EffectButton, SecBtn } from "./style/Button";
+export {
+  EffectButton,
+  TransparentBtn,
+  WeatherBtn,
+  SecBtn,
+} from "./style/Button";

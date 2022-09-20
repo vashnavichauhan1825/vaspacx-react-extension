@@ -9,7 +9,6 @@ const chromeData = createSlice({
     flag: false,
   },
   reducers: {
-    getName(state, action) {},
     updateName(state, action) {
       state.name = action.payload;
     },
@@ -20,6 +19,7 @@ const chromeData = createSlice({
     },
     setFlag(state) {
       state.flag = !state.flag;
+      localStorage.setItem("flag", state.flag);
     },
     setGreetings(state, action) {
       state.greetings = action.payload;
