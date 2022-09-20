@@ -3,20 +3,22 @@ import { createSlice } from "@reduxjs/toolkit";
 const chromeData = createSlice({
   name: "data",
   initialState: {
-    name: "",
+    name: localStorage.getItem("name"),
     greetings: "",
     dateStore: [{ date: "", month: "", year: "" }],
-    flag: false,
+    flag: localStorage.getItem("flag"),
   },
   reducers: {
     updateName(state, action) {
       state.name = action.payload;
+      localStorage.setItem("name", state.name);
     },
     setName(state) {
       if (state.name.length > 0) {
         localStorage.setItem("name", state.name);
       }
     },
+
     setFlag(state) {
       state.flag = !state.flag;
       localStorage.setItem("flag", state.flag);
@@ -53,25 +55,6 @@ const chromeData = createSlice({
   },
 });
 
-export const getDate = (date) => {
-  const monthArr = [
-    "january",
-    "februray",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  return async (dispatch) => {
-    monthArr.map((month, index) => console.log(month, index));
-  };
-};
 export const getDataActions = chromeData.actions;
 
 export default chromeData.reducer;

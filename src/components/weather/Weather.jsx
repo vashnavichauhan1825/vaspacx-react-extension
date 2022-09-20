@@ -5,6 +5,7 @@ import {
   TempWrapper,
   WeatherWrapper,
 } from "../style/Elements";
+import { SecBtn, TransparentBtn } from "../style/Button";
 
 const Weather = () => {
   const [coordinates, setCoordinates] = useState({ latitude: 0, longitude: 0 });
@@ -85,6 +86,7 @@ const Weather = () => {
           {weather.location}
         </>
       )}
+      <SecBtn onClick={() => setIsInputVisible(true)}>Change city</SecBtn>
     </WeatherWrapper>
   );
 };

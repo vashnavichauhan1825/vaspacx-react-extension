@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { SecBtn, TransparentBtn } from "../style/Button";
+import { ColumnWrap, InputCitySearch, TodoWrapper } from "../style/Elements";
 
 const Todo = () => {
   const [input, setInput] = useState("");
@@ -33,19 +34,19 @@ const Todo = () => {
   );
 
   return (
-    <div className="todo-wrapper">
+    <TodoWrapper>
       {openTodoList ? (
         <>
-          <div className="todo-heading">Todo List</div>
-          <input
-            className="todo-input"
+          <div>Todo List</div>
+          <InputCitySearch
             onChange={(e) => setInput(e.target.value)}
+            placeholder="press enter to add task..."
             onKeyDown={(e) =>
               e.code === "Enter" && e.target.value !== "" && addTodo()
             }
             value={input}
           />
-          <div className="list-display">
+          <ColumnWrap Start>
             {todoList.map((item, index) => (
               <label
                 key={index}
@@ -53,7 +54,7 @@ const Todo = () => {
                   textDecoration: item.checked ? "line-through" : "none",
                 }}
               >
-                <input
+                <InputCitySearch
                   type="checkbox"
                   checked={item.checked}
                   onChange={() => toggleChecked(item)}
@@ -61,14 +62,11 @@ const Todo = () => {
                 {item.todo}
               </label>
             ))}
-          </div>
+          </ColumnWrap>
           {todoList.length > 0 && (
-            <button
-              className="delete-completed-btn"
-              onClick={() => deleteCheckedTodo()}
-            >
+            <SecBtn onClick={() => deleteCheckedTodo()}>
               Delete Completed Task
-            </button>
+            </SecBtn>
           )}
         </>
       ) : (
@@ -76,7 +74,7 @@ const Todo = () => {
           Add Task !
         </TransparentBtn>
       )}
-    </div>
+    </TodoWrapper>
   );
 };
 

@@ -6,10 +6,13 @@ import {
   EffectButton,
   DateContainer,
   DetailContainer,
+  UpperBox,
 } from "../components";
 import SpecialCountdown from "../components/CountDown";
+import Title from "../components/documentTitle/Title";
 import Edit from "../components/edit/Edit";
 import Greetings from "../components/Greetings";
+import Quotes from "../components/quotes/Quotes";
 import Time from "../components/Time";
 import Todo from "../components/todo/Todo";
 import Weather from "../components/weather/Weather";
@@ -19,12 +22,12 @@ const MainPage = () => {
   const dateValue = useSelector((state) => state.extData.dateStore.date);
   const monthValue = useSelector((state) => state.extData.dateStore.month);
   const yearValue = useSelector((state) => state.extData.dateStore.year);
-  const flag = localStorage.getItem("flag");
+  const flag = useSelector((state) => state.extData.flag);
   const dispatch = useDispatch();
   const getDate = () => {
     return new Date().toDateString();
   };
-
+  Title("Main");
   const startDeadline = () => {
     if (dateValue) {
       const dateObj = { date: dateValue, month: monthValue, year: yearValue };
@@ -47,12 +50,18 @@ const MainPage = () => {
   return (
     <>
       <DetailContainer>
+        <UpperBox>
+          <Todo />
+          <Quotes />
+          <Weather />
+        </UpperBox>
+
         <span data-aos="zoom-in">
           <Greetings />
         </span>
 
         <Time />
-        <DateContainer data-aos="fade-in">{getDate()}</DateContainer>
+        <DateContainer>{getDate()}</DateContainer>
         {!flag && (
           <>
             <small>set deadline to acheive goal !</small>
@@ -71,8 +80,7 @@ const MainPage = () => {
             </form>
           </>
         )}
-        <Weather />
-        <Todo />
+
         {flag && <SpecialCountdown />}
       </DetailContainer>
       {flag && <Edit />}

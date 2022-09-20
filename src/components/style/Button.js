@@ -29,6 +29,7 @@ export const EffectButton = styled.button`
 export const SecBtn = styled.div`
   border: none;
   color: var(--grey-color);
+  font-size: 15px;
   background: transparent;
   cursor: pointer;
 `;

@@ -36,10 +36,32 @@ export const CenterWrapper = styled.div`
   width: 100%;
   justify-content: center;
 
-  div {
+  form {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+export const UpperBox = styled.div`
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  width: 90%;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+`;
+
+export const TodoWrapper = styled.div`
+  margin: 5px;
 `;
 
 export const DetailContainer = styled.div`
@@ -57,11 +79,18 @@ export const DetailContainer = styled.div`
     display: flex;
     justify-content: space-between;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    text-align: center;
+    justify-content: start;
+    gap: 10px;
+  }
 `;
 
 export const BottomWrapper = styled.div`
   position: absolute;
-  bottom: 5%;
+  bottom: 2%;
   right: 5%;
   display: flex;
   width: auto;
@@ -72,12 +101,35 @@ export const BottomWrapper = styled.div`
 export const ColumnWrap = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  align-items: ${(props) => (props.Start ? "start" : "center")};
   justify-content: center;
 
   p {
     margin: 0;
     font-size: 20px;
+  }
+  @media (max-width: 768px) {
+    height: ${(props) => (props.Start ? "150px" : "")};
+    width: ${(props) => (props.Start ? "300px" : "")};
+  }
+`;
+
+export const QuotesWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    font-size: 1.5rem;
+    color: var(--cta-color);
+  }
+  p {
+    font-size: 10px;
+    color: var(--grey-color);
   }
 `;
 
@@ -101,11 +153,18 @@ export const InputName = styled.input`
 export const DateContainer = styled.div`
   color: var(--primary-color);
   font-size: 2rem;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 export const TimeWrapper = styled.div`
   font-size: 4rem;
   color: white;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 export const CountDownWrapper = styled.div`
@@ -115,6 +174,9 @@ export const CountDownWrapper = styled.div`
   font-size: 6rem;
   color: white;
   justify-content: space-evenly;
+  @media (max-width: 768px) {
+    font-size: 4rem;
+  }
 `;
 
 export const WeatherWrapper = styled.div`
@@ -123,9 +185,6 @@ export const WeatherWrapper = styled.div`
   color: white;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  right: 5%;
-  top: 5%;
 `;
 
 export const TempWrapper = styled.div`
@@ -135,19 +194,19 @@ export const TempWrapper = styled.div`
   color: var(--cta-color);
 `;
 
-export const InputCitySearch = styled.div`
-  display: block;
-  font-size: 1.75rem;
-  width: 15rem;
-  height: 3rem;
+export const InputCitySearch = styled.input`
+  background-color: transparent;
   text-align: center;
-  background-color: black;
   border: none;
-  outline: none;
-  border-bottom: 1px solid var(--grey-color);
-  color: var(--grey-color);
+  color: white;
+  font-size: 1rem;
+  border-bottom: 2px solid var(--cta-color);
+  width: auto;
 
+  &:focus {
+    outline: none;
+  }
   &::placeholder {
-    color: var(--primary-color);
+    color: var(--grey-color);
   }
 `;
